@@ -64,6 +64,7 @@ body {
 /* 4. Individual Book Card Styling */
 /* Targets the divs inside our container */
 #Library_container > .book-card {
+    position: relative;
     background: white;
     padding: 20px;
     border-radius: 12px;
@@ -80,7 +81,44 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
+.remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  
+  /* Make it look like a close icon */
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 50%; /* Makes it a circle */
+  width: 25px;
+  height: 25px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
 
+.remove:hover {
+  background: #cc0000;
+  transform: scale(1.1); /* Slight pop on hover */
+}
+.change {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #f39c12; /* A warm orange */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
 /* 5. Typography inside the Card */
 #Library_container h1 {
     font-size: 1.4rem;
@@ -105,7 +143,7 @@ body {
     display: flex;         /* Creates a new flex context */
     flex-direction: row;    /* Makes items sit side-by-side (default) */
     align-items: center;    /* Vertically aligns checkbox and text */
-    gap: 10px;             /* Space between label and checkbox */
+    justify-content: space-between;             /* Space between label and checkbox */
     margin-top: 15px;
     padding-top: 15px;
     border-top: 1px solid #eee;

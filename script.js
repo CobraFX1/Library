@@ -24,6 +24,14 @@ function displayLibrary() {
     let title = document.createElement("h1");
     title.textContent = `${book.title}`;
 
+    let removeBtn = document.createElement("button");
+    removeBtn.textContent = "X";
+    removeBtn.classList.add("remove");
+    removeBtn.addEventListener("click", () => {
+      myLibrary.splice(myLibrary.indexOf(book), 1);
+      displayLibrary();
+    });
+
     let author = document.createElement("p");
     author.textContent = `${book.author}`;
 
@@ -37,12 +45,21 @@ function displayLibrary() {
     let readStatus = book.read ? "Read" : "Not Read Yet";
     label.textContent = `${readStatus}`;
 
-    let checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    book.read ? (checkbox.checked = true) : (checkbox.checked = false);
+    // let checkbox = document.createElement("input");
+    // checkbox.type = "checkbox";
+    // book.read ? (checkbox.checked = true) : (checkbox.checked = false);
 
-    status.append(label, checkbox);
-    card.append(title, author, pages, status);
+    let changeCheckbtn = document.createElement("button");
+    changeCheckbtn.classList.add("change");
+    changeCheckbtn.textContent = "Change Status"
+    changeCheckbtn.addEventListener("click", () => {
+      label.textContent == "Read" 
+      ? label.textContent = "Not Read Yet" 
+      : label.textContent = "Read"
+    });
+
+    status.append(label, changeCheckbtn);
+    card.append(title, author, pages, status, removeBtn);
     container.appendChild(card);
   }
 }
@@ -71,3 +88,10 @@ submitBtn.addEventListener("click", (e) => {
   displayLibrary();
   dialog.close();
 });
+/**
+ * Add a button on each book’s display to change its read status.
+  To facilitate this you will want to create Book prototype function
+   that toggles a book instance’s read status.
+  Add a change status button
+  when clicked the book changes status
+ */
