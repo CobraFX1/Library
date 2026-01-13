@@ -119,6 +119,10 @@ body {
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+.change:hover {
+  background-color: #e67e22; /* Darker orange on hover */
+  transform: translateY(-2px);
+}
 /* 5. Typography inside the Card */
 #Library_container h1 {
     font-size: 1.4rem;
