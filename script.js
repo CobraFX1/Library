@@ -50,11 +50,24 @@ displayLibrary();
 const dialog = document.querySelector("#bookDialog");
 const openModalBtn = document.querySelector("#addBookBtn");
 const cancelBtn = document.querySelector("#closeDialog");
+const submitBtn = document.querySelector("#submitBook");
 
 openModalBtn.addEventListener("click", () => {
   document.querySelector('form').reset();
   dialog.showModal();
 });
 cancelBtn.addEventListener("click", () => {
+  dialog.close();
+});
+
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  addBookToLibrary(
+    document.querySelector("#title").value,
+    document.querySelector("#author").value,
+    document.querySelector("#pages").value,
+    document.querySelector("#read").checked
+  );
+  displayLibrary();
   dialog.close();
 });
