@@ -1,11 +1,22 @@
 const myLibrary = [];
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = crypto.randomUUID();
+class Book {
+
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = crypto.randomUUID();
+  }
+
 }
+// function Book(title, author, pages, read) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+//   this.id = crypto.randomUUID();
+// }
 function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
@@ -46,9 +57,9 @@ function displayLibrary() {
     changeCheckbtn.classList.add("change");
     changeCheckbtn.textContent = "Change Status"
     changeCheckbtn.addEventListener("click", () => {
-      label.textContent == "Read" 
-      ? label.textContent = "Not Read Yet" 
-      : label.textContent = "Read"
+      label.textContent == "Read"
+        ? label.textContent = "Not Read Yet"
+        : label.textContent = "Read"
     });
 
     status.append(label, changeCheckbtn);
@@ -81,3 +92,11 @@ submitBtn.addEventListener("click", (e) => {
   displayLibrary();
   dialog.close();
 });
+
+/** 
+ * what i want to do is simple 
+ * take all the constructors and modify them to classes instead
+ * what are the constructors
+ * book
+ * 
+ */
